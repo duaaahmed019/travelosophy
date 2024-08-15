@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    
+    <div class="main-container">
+        <nav>   
+            <ul class="navigation">
+                <li id="li-1"><a href="#">Home</a></li>
+                <li id="li-2"><a href="../about-us/aboutus.html">About</a></li>
+                <li id="li-3">Help</li>
+                <li id="li-4">Travel Guide</li>
+                <li id="li-5">Pricing</li>
+                <li id="li-6">Contact</li>
+                <li id="li-7">Feedback</li>
+            </ul>
+        </nav>
+            
+        
+        
+        <form action="#">
+            
+            <h1 class="heading"> Welcome to Travelosophy</h1>
+            
+            <div class="form-contrainer">
+            <label for="id"> Contact</label>
+            <div class="input-containers">
+                <input id="username" type="text" name="id" placeholder="eg: 123456" >
+            </div>
+            <div id="error-1"> </div>
+                <br>
+            
+            <label for="pass">Password</label>
+            <div class="input-containers">
+                <input id="password" type="password" name="pass">
+            </div>
+                </div>
+            <ul id="error-2"> </ul>
+            
+            <div class="btn-cont">
+            <button id="btn-1" type="button" onclick="validation()"> Login </button>
+            <button id="btn-3" type="button" onclick> Sign Up </button>
+                </div>
+            <button id="btn-2" type="button" onclick="reset_pass_page_open()"> Forgot Password</button>
+            
+            
+        </form>
+        
+                <section>
+            <h1 class="notice-board-heading">Notices</h1>
+            
+            <div class="boxes" id="box_1">
+                <h2>New Feature: Share Your Travel Stories 🌍✈️</h2>
+                <p>We now have a brand new feature that allows you to share your amazing travel experiences with the world! Create captivating blog posts and showcase your wanderlust to fellow globetrotters.</p>
+    </div>
+    <div class="boxes" id="box_2">
+        <h2>Upcoming Travel Meetup 🗓️👥</h2>
+        <p>Mark your calendars! We're organizing a travel meetup on 26-8-23 at Port Grand Karachi. Join us for an evening of exchanging travel tales, insider tips, and making new friends who share the same passion for exploration.</p>
+    </div>
+    <div class="boxes" id="box_3">
+        <h2>Travel Photo Contest 📸🏆</h2>
+        <p>Participate in our ongoing travel photo contest and stand a chance to win exciting prizes! Share your best travel snapshots with us on social media using #TravelMemories and get featured on our blog.</p>
+        </div>
+        <div class="boxes" id="box_4">
+            <h2>Introducing Wanderlust Guides 🗺️📚</h2>
+            <p>Explore the hidden gems and must-visit destinations with our comprehensive Wanderlust Guides. We've curated the ultimate travel resources to inspire your next adventure.</p>
+        </div>
+                    <div class="boxes" id="box_5">
+            <h2>Your Feedback Matters! 📝🤝</h2>
+            <p>We value your opinion! Help us improve your experience on our blog by sharing your feedback. Drop us a message or send an email to feedback@travelosophy.com with your suggestions and ideas.</p>
+        </div>
+        <!-- <div class="boxes" id="box_5">
+            <h2></h2>
+            <p></p>
+        </div>
+        <div class="boxes" id="box_6">
+            <h2></h2>
+            <p></p>
+        </div> -->
+</section>
+        
+        <footer>
+    <h4>Copyright © 2023 All Rights Reserved</h4>
+</footer>
+        
+    </div>
+    </body>
+    
+    <script type="application/javascript">
+let username = document.getElementById("username");
+let password = document.getElementById("password");
+
+let error1 = document.getElementById("error-1")
+let error2 = document.getElementById("error-2")
+
+
+
+const validation= ()=>{
+
+    error1.innerHTML = ""
+    error2.innerHTML = ""
+    error2.classList.remove("error-color")/* added this to remove that pass contain error*/
+
+
+let registered_ids = [098765, 123456, 03222297791];
+let regex = /^[0-9]+$/;
+
+
+if(username.value.trim()==""){
+    error1.innerHTML = " <br> Contact field is empty"
+    username.classList.add("error-colors")
+}
+else if (!username.value.match(regex)) {
+    error1.innerHTML = "<br> Invalid Contact"
+    username.classList.add("error-colors");
+}
+
+else{
+    error1.classList.remove("error-colors");
+    error1.innerHTML = ""
+    for (let i = 0; i < registered_ids.length; i++) {
+        if (username.value.trim() == registered_ids[i]) {
+            error1.innerHTML = ""
+            error1.classList.remove("error-colors");
+            let Registered_ID = username.value.trim();
+sessionStorage.setItem("Registered_ID", Registered_ID);
+
+            break;
+        }
+
+        else {
+            error1.classList.add("error-colors");
+            error1.innerHTML = "<br> Incorrect Contact"
+        }
+    }
+}
+
+
+let regex_specialchar = /(?=.*?[.#?!@$%^&*-])/
+let regex_numbers = /(?=.*?[0-9])/
+let regex_CapAlphabet = /(?=.*?[A-Z])/
+let regex_SmallAlphabet = /(?=.*?[a-z])/
+
+
+if(password.value.trim()==""){
+    error2.innerHTML = "Password field is empty"
+    password.classList.add("error-color")
+}
+else{
+    error2.innerHTML = "Password must contain: "
+
+ 
+    if (!password.value.trim().match(regex_numbers)) {
+       
+        error2.classList.add("error-color");
+        error2.innerHTML += "<li>At least one digit </li>"
+    }
+    if (!password.value.trim().match(regex_SmallAlphabet)) {
+       
+        error2.classList.add("error-color");
+        error2.innerHTML += "<li>At least one lowercase character <code>[a-z]</code></li>"
+
+    }
+    if (!password.value.trim().match(regex_CapAlphabet)) {
+       
+        error2.classList.add("error-color");
+        error2.innerHTML += "<li>At least one uppercase character <code>[A-Z] </code></li>"
+    }
+    if (!password.value.trim().match(regex_specialchar)) {
+       
+        error2.classList.add("error-color");
+        error2.innerHTML += "<li>At least one special character <code>[*.!@#$%^&amp;(){}[]:;&lt;&gt;,.?/~_+-=|\]</code></li>"
+    }
+    if (password.value.trim().length < 8 || password.value.trim().length > 32 ) {
+       
+        error2.classList.add("error-color");
+        error2.innerHTML += "<li>At least 8 characters in length, but no more than 32.</li>"
+    }
+
+    if (!error2.classList.contains("error-color") && error1.classList.contains("error-colors")) {
+        error2.innerHTML = "";
+    }
+
+
+    if (!error2.classList.contains("error-color") && !error1.classList.contains("error-colors")) {
+
+        error2.innerHTML = ""
+
+        error2.innerHTML = "<li> Strong Password </li>"
+
+        document.querySelector("#error-2").getElementsByTagName("li")[0].style.listStyle = "none"
+        document.querySelector("#error-2").getElementsByTagName("li")[0].style.color = "green"
+
+        window.location.href = "../landing pg/index.html"
+
+
+    }
+
+
+
+    
+}
+
+}
+
+
+
+
+
+
+const change = ()=>{
+    let hamburger = document.getElementsByClassName("hamburger")[0];
+    console.log(hamburger);
+    let patty1 = document.querySelectorAll('.patty')[0];
+    console.log(patty1);
+    let patty2 = document.querySelectorAll('.patty')[1];
+    console.log(patty2);
+    let patty3 = document.querySelectorAll('.patty')[2];
+    console.log(patty3);
+
+
+    // let ok = hamburger[0].patty1;
+patty1.classList.toggle("turn1")
+patty2.classList.toggle("turn2")
+patty3.classList.toggle("turn3")
+
+
+let side_menu = document.getElementsByClassName("side-menu")[0];
+
+side_menu.classList.toggle("side-menu-open")
+}
+
+
+const reset_pass_page_open = () =>{
+    window.location.href = '../Reset-password-page/index.html'
+}
+
+
+
+
+
+</script>
+    
