@@ -1,0 +1,173 @@
+/* Common styles for both large and small screens */
+.traveler-title {
+  margin-top: 40px;
+    padding: 30px;
+    font-family: "Arial", sans-serif;
+}
+
+.main-picture {
+    background-image: url(images/bg.jpg); /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 300px; /* Adjust the height as needed */
+    text-align: left;
+    color: #ffffff; /* Set the text color */
+    padding: 50px;
+}
+
+.quotation {
+    padding: 20px;
+}
+
+.text-cen {
+    text-align: center;
+    margin: 30px;
+    color: grey;
+    font-style: italic;
+}
+
+.con1 {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.blog-img1 {
+    flex: 1 0 300px;
+    margin: 10px;
+    overflow: hidden;
+}
+
+.blog-img1 img {
+    width: 100%;
+    height: 300px;
+    display: block;
+}
+
+.blog-img1 img:hover {
+    opacity: 0.5;
+}
+
+.content-1 {
+    flex: 1 0 400px;
+    margin: 10px;
+    padding: 20px;
+    background-color: #f0f0f0;
+}
+
+.link-art {
+    color: grey;
+}
+
+.second-picture {
+    background-image: url(images/bg-2.jpg);
+    opacity: 0.5; /* Replace 'path/to/your/image.jpg' with the actual path to your image */
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    height: 300px; /* Adjust the height as needed */
+    text-align: left;
+    color: #ffffff; /* Set the text color */
+    padding: 50px;
+    margin-top: 10px;
+}
+
+.traveler-title2 {
+    font-weight: bold;
+    color: #000;
+    text-align: center;
+    padding: 70px;
+    font-family: "Arial", sans-serif;
+}
+
+    .comment-section {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .comment-box {
+      border-bottom: 1px solid #ccc;
+      border-top: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      margin-top: 10px;
+    }
+
+    .comment-author {
+      font-weight: bold;
+    }
+
+    .comment-date {
+      font-size: 0.8em;
+      color: #666;
+    }
+
+    .comment-text {
+      margin-top: 5px;
+    }
+
+    form {
+      margin-top: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+
+    input[type="submit"] {
+      background-color: pink;
+      color: #fff;
+      cursor: pointer;
+    }
+    input[type="submit"]:hover {
+        background-color: rgb(249, 247, 247);
+        color: #070606;
+        cursor: pointer;
+      }
+
+  
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+    .container-fluid.main-picture,
+    .container-fluid.second-picture {
+        height: 200px; /* Adjust the height for smaller screens */
+        padding: 30px; /* Adjust the padding for smaller screens */
+    }
+
+    .traveler-title {
+        font-size: 24px; /* Adjust the font size for smaller screens */
+    }
+
+    .text-cen {
+        font-size: 14px; /* Adjust the font size for smaller screens */
+    }
+
+    .blog-img1 {
+        flex: 1 0 100%;
+        margin: 5px;
+    }
+
+    .content-1 {
+        flex: 1 0 100%;
+        margin: 5px;
+        padding: 10px;
+    }
+    .comment-section {
+        padding: 10px;
+      }
+}
